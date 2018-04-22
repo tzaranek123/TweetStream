@@ -4,9 +4,15 @@ version := "1.0"
 
 scalaVersion := "2.12.4"
 
-libraryDependencies ++= {
-  Seq(
-    "com.typesafe.akka" %% "akka-stream" % "2.5.12",
-    "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.12" % Test
+lazy val root = (project in file("."))
+  .settings(
+    libraryDependencies ++= {
+
+    val akkaVersion = "2.5.12"
+
+    Seq(
+          "com.typesafe.akka" %% "akka-stream" % akkaVersion,
+          "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
+        )
+    }
   )
-}
